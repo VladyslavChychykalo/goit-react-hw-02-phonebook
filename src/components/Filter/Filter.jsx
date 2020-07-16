@@ -1,9 +1,9 @@
 import React from "react";
 
-const Filter = ({ onChangeFilter }) => (
+const Filter = ({ value, onChangeFilter }) => (
   <div>
     <p>Find contacts by name</p>
-    <input onChange={onChangeFilter} type="text" />
+    <input value={value} onChange={onChangeFilter} type="text" />
   </div>
 );
 
