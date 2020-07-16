@@ -4,6 +4,9 @@ import ContactList from "./ContactList/ContactList";
 import Filter from "./Filter/Filter";
 import { v4 as uuidv4 } from "uuid";
 
+// const filterPhones = (filter, contacts) =>
+//   contacts.filter((el) => el.name.toLowerCase().includes(filter.toLowerCase()));
+
 export default class App extends Component {
   state = { contacts: [], filter: "" };
 
@@ -44,11 +47,13 @@ export default class App extends Component {
   };
 
   searchWord = (filter, contacts) => {
-    if (filter.length === 0) {
-      return contacts;
-    }
+    // if (filter.length === 0) {
+    //   return contacts;
+    // }
 
-    return contacts.filter((el) => el.name.indexOf(filter.toLowerCase()) > -1);
+    return contacts.filter(
+      (el) => el.name.toLowerCase().indexOf(filter.toLowerCase()) > -1
+    );
   };
 
   handleDelete = (id) => {
@@ -61,6 +66,7 @@ export default class App extends Component {
     const { filter, contacts } = this.state;
 
     const filteredElements = this.searchWord(filter, contacts);
+    // const filteredElements = filterPhones(filter, contacts);
 
     return (
       <div>
