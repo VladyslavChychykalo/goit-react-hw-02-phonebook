@@ -51,6 +51,12 @@ export default class App extends Component {
     return contacts.filter((el) => el.name.indexOf(filter.toLowerCase()) > -1);
   };
 
+  handleDelete = (id) => {
+    this.setState((state) => ({
+      contacts: state.contacts.filter((el) => el.id !== id),
+    }));
+  };
+
   render() {
     const { filter, contacts } = this.state;
 
@@ -63,7 +69,7 @@ export default class App extends Component {
 
         <h2>Contacts</h2>
         <Filter onChangeFilter={this.handleChangeFilter} />
-        <ContactList contacts={filteredElements} />
+        <ContactList onDelete={this.handleDelete} contacts={filteredElements} />
       </div>
     );
   }
